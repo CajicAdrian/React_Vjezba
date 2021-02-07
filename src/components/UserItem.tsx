@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
 import { Box, Image, Link, Text } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
+import type { User } from 'types';
 
-interface Props {
-  id: string;
-  login: string;
-  avatar_url: string;
-  html_url: string;
-}
-
-export class UserItem extends Component<UserItem, Props> {
-  state: Props = {
-    id: 'id',
-    login: 'mojombo',
-    avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
-    html_url: 'https://github.com/mojombo',
-  };
-
+export class UserItem extends Component<UserItem, User> {
   render() {
-    const { login, avatar_url, html_url } = this.state;
+    const { login, avatar_url, html_url } = this.props.user;
     return (
       <Box>
         <Image src={avatar_url} htmlWidth="50rem" borderRadius="50%" />
