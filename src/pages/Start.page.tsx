@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text } from '@chakra-ui/react';
-import { Header } from 'components';
+import { Header, UserItem } from 'components';
 
 export class StartPage extends Component {
   render() {
@@ -8,6 +8,7 @@ export class StartPage extends Component {
       <>
         <Header />
         <Text as="h1">Start here</Text>
+        <UserItem />
       </>
     );
   }
