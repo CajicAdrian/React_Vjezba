@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text } from '@chakra-ui/react';
 
-export const StartPage = (): JSX.Element => {
-  return (
-    <>
-      <Text as="h1">Start here</Text>
-    </>
-  );
-};
+class App extends Component {
+  render() {
+    return (
+      <>
+        <Text as="h1">Start here</Text>
+      </>
+    );
+  }
+}
+
+export default App;
