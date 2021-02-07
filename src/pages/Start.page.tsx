@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Text } from '@chakra-ui/react';
+import { Header } from 'components';
 
-class App extends Component {
+export class StartPage extends Component {
   render() {
     return (
       <>
+        <Header />
         <Text as="h1">Start here</Text>
       </>
     );
   }
 }
-
-export default App;
