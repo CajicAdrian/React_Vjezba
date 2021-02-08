@@ -8,33 +8,10 @@ interface State {
 }
 
 export class Users extends Component<Users, State> {
-  state: State = {
-    users: [
-      {
-        id: '1',
-        login: 'mojombo',
-        avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
-        html_url: 'https://github.com/mojombo',
-      },
-      {
-        id: '2',
-        login: 'defunkt',
-        avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
-        html_url: 'https://github.com/mojombo',
-      },
-      {
-        id: '3',
-        login: 'pihyett',
-        avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
-        html_url: 'https://github.com/mojombo',
-      },
-    ],
-  };
-
   render() {
     return (
       <Box style={userStyle}>
-        {this.state.users.map((user) => (
+        {this.props.users.map((user) => (
           <UserItem key={`key-${user.id}`} user={user} />
         ))}
       </Box>

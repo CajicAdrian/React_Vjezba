@@ -7,7 +7,7 @@ interface defaultProps {
 }
 
 export const Header = (props: defaultProps): JSX.Element => {
-  const { title } = props;
+  const { title = 'GitHub Finder' } = props;
   return (
     <Box>
       <Image src={GitHubIcon} />
