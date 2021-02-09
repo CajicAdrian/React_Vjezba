@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Box } from '@chakra-ui/react';
-import { Header, Users } from 'components';
+import { Header, Users, Search } from 'components';
 import axios from 'axios';
 
 export class StartPage extends Component {
@@ -20,6 +20,7 @@ export class StartPage extends Component {
       <>
         <Header title={this.title} />
         <Box>
+          <Search />
           <Users loading={this.state.loading} users={this.state.users} />
         </Box>
       </>

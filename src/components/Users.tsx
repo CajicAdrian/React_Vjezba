@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import React, { Component } from 'react';
+import React from 'react';
 import type { User } from 'types';
 import { UserItem } from 'components';
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const Users = (props: Props) => {
-  const { users, loading } = props;
+  const { users } = props;
   return (
     <Box style={userStyle}>
       {users.map((user) => (
