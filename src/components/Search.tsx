@@ -12,6 +12,12 @@ export class Search extends Component {
 
   onSubmit = () => {
     e.preventDefault();
+    if (this.state.text === '') {
+      this.props.setAlert('Please enter something', 'light');
+    } else {
+      this.props.searchUsers(this.state.text);
+      this.setState({ text: '' });
+    }
   };
 
   render() {
@@ -21,7 +27,7 @@ export class Search extends Component {
           <Input
             placeholder="Search users"
             type="search"
-            name="search"
+            name="text"
             value={this.state.text}
             onChange={this.onChange}
           />
