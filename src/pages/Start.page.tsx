@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Box } from '@chakra-ui/react';
-import { Header, Users, Search } from 'components';
+import { Header, Users, Search, About } from 'components';
 import axios from 'axios';
 import { useAsync } from 'react-use';
 import type { User } from 'types';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 interface Items {
   items: User[];
@@ -30,11 +31,28 @@ export const StartPage = (): JSX.Element => {
   }, [input]);
   return (
     <>
-      <Header />
-      <Box>
-        <Search input={input} setInput={setInput} setUsers={setUsers} />
-        <Users loading={loading} users={users} />
-      </Box>
+      <Router>
+        <Header />
+        <Box>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <>
+                  <Search
+                    input={input}
+                    setInput={setInput}
+                    setUsers={setUsers}
+                  />
+                  <Users loading={loading} users={users} />
+                </>
+              )}
+            />
+          </Switch>
+          <Route exact path="/about" component={About} />
+        </Box>
+      </Router>
     </>
   );
 };
