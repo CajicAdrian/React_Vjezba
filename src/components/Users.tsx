@@ -8,7 +8,7 @@ interface Props {
   loading: boolean;
 }
 
-export const Users = (props: Props) => {
+export const Users = (props: Props): JSX.Element => {
   const { users } = props;
   return (
     <Box style={userStyle}>

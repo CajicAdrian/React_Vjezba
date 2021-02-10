@@ -1,39 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { FormControl, Button, Input, Box } from '@chakra-ui/react';
+import type { User } from 'types';
 
-export class Search extends Component {
-  state = {
-    text: '',
-  };
-
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  onSubmit = () => {
-    e.preventDefault();
-    if (this.state.text === '') {
-      this.props.setAlert('Please enter something', 'light');
-    } else {
-      this.props.searchUsers(this.state.text);
-      this.setState({ text: '' });
-    }
-  };
-
-  render() {
-    return (
-      <Box>
-        <FormControl onSubmit={this.onSubmit} id="search">
-          <Input
-            placeholder="Search users"
-            type="search"
-            name="text"
-            value={this.state.text}
-            onChange={this.onChange}
-          />
-          <Button colorScheme="blue">Search</Button>{' '}
-        </FormControl>
-      </Box>
-    );
-  }
+interface Props {
+  input: string;
+  setInput: (input: string) => void;
+  setUsers: (users: User[]) => void;
 }
+
+export const Search = (props: Props): JSX.Element => {
+  const { input, setInput, setUsers } = props;
+
+  return (
+    <Box>
+      <FormControl id="search">
+        <Input
+          placeholder="Search users"
+          type="text"
+          name="text"
+          value={input}
+          onChange={(e: React.FormEvent<HTMLInputElement>) => {
+            setInput(e.currentTarget.value);
+          }}
+        />
+
+        <Button
+          onClick={() => {
+            setUsers([]);
+            setInput('');
+          }}
+        >
+          Clear
+        </Button>
+      </FormControl>
+    </Box>
+  );
+};
